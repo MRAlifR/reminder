@@ -1,0 +1,52 @@
+name: reminder
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: "."
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v2
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub global activate very_good_cli
+          very_good --analytics false
+          very_good packages get --recursive
+      
+      - name: ✨ Check Formatting
+        run: flutter format --set-exit-if-changed lib test
+
+      - name: 🕵️ Analyze
+        run: flutter analyze lib test
+
+      - name: 🧪 Run Tests
+        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
+
+      - name: 📊 Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v1.2.0
+        with:
+          min_coverage: 100
+          path: ./coverage/lcov.info
+          exclude: "**/*.freezed.dart **/*.g.dart **/*.gr.dart **/*.config.dart"
+          # remove_from_coverage -f coverage/lcov.info -r '\.freezed\.dart$', '\.g\.dart$', '\.gr\.dart$', '\.gconfig\.dart$'
+      
+      - name: ⛱️ Upload Coverage Report
+        uses: codecov/codecov-action@v2
+        with:
+          token: 55f2427d-99af-4f1f-8560-bbaf6364d93f
+          file: ./coverage/lcov.info
+          name: Reminder
+          fail_ci_if_error: true

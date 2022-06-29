@@ -1,0 +1,7 @@
+{
+    "@@locale": "id",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text yang muncul pada AppBar pada Counter Page"
+    }
+}
