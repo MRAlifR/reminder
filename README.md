@@ -160,9 +160,9 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [very_good_cli_link]: https://github.com/VeryGoodOpenSource/very_good_cli
-[codecov_badge]:https://codecov.io/gh/MRAlifR/reminder/branch/master/graph/badge.svg?token=SILIPVGCEJ
+[codecov_badge]:https://codecov.io/gh/MRAlifR/reminder/branch/main/graph/badge.svg?token=SILIPVGCEJ
 [codecov_link]:https://codecov.io/gh/MRAlifR/reminder
 [flutter_lints_badge]:https://img.shields.io/badge/style-flutter__lints-blue
 [flutter_lints_link]:https://pub.dev/packages/flutter_lints
-[github_workflow_badge]:https://github.com/MRAlifR/reminder/actions/workflows/main.yaml/badge.svg?branch=master
+[github_workflow_badge]:https://github.com/MRAlifR/reminder/actions/workflows/main.yaml/badge.svg?branch=main
 [github_workflow_link]:https://github.com/MRAlifR/reminder/actions/workflows/main.yaml
